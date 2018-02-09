@@ -81,4 +81,15 @@ public class MainActivityTest {
         // Check that the text was changed.
         onView(withId(R.id.textView1)).check(matches(withText("Password Not Strong.")));
     }
+
+    @Test
+    public void passwordValidateCorrect() {
+        // Type text and then press the button.
+        onView(withId(R.id.editText1))
+                .perform(typeText("Testcase1"), closeSoftKeyboard());
+        onView(withId(R.id.button1)).perform(click());
+
+        // Check that the text was changed.
+        onView(withId(R.id.textView1)).check(matches(withText("Password Is Strong.")));
+    }
 }
